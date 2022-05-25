@@ -15,7 +15,7 @@ public class Order {
 	
 	private String orderNumber;
 	
-	private List<Product> items;
+	private List<CartEntry> items;
 	
 	private double total;
 	
@@ -58,13 +58,10 @@ public class Order {
 		this.orderNumber = orderNumber;
 	}
 
-	public List<Product> getItems() {
-		return items;
-	}
-
-	public void setItems(List<Product> items) {
+	public void setItems(List<CartEntry> items) {
 		this.items = items;
 	}
+
 
 	public double getTotal() {
 		return total;

@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "products")
 public class Product {
-	
+
 	@Id
 	private String id;
 	
@@ -77,6 +77,16 @@ public class Product {
 	private String subCategory4;
 	
 	private String supplierCountry;
+
+	private String supplierContactEmail;
+
+	public String getSupplierContactEmail() {
+		return supplierContactEmail;
+	}
+
+	public void setSupplierContactEmail(String supplierContactEmail) {
+		this.supplierContactEmail = supplierContactEmail;
+	}
 	
 	public String getSupplierCountry() {
 		return supplierCountry;

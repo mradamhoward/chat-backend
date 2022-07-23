@@ -1,9 +1,7 @@
 package com.terabulk.seller.controllers;
 
 import com.terabulk.seller.models.Notification;
-import com.terabulk.seller.models.SellerItem;
 import com.terabulk.seller.repository.NotificationRepository;
-import com.terabulk.seller.repository.SellerItemRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,16 +13,8 @@ import java.util.List;
 @RequestMapping("/seller/orders")
 public class OrdersController {
 
-    @Autowired
-    private SellerItemRepo sellerItemRepo;
-
-    @Autowired
     private NotificationRepository notificationRepository;
 
-    @GetMapping("/all")
-    public List<SellerItem> getAllForSpecificSeller(@RequestParam String sellerId){
-        return sellerItemRepo.findBySellerId(sellerId);
-    }
 
     @PostMapping("/specific/dispatched")
     public void dispatchItem(@RequestParam String orderItemId){

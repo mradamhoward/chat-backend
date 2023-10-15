@@ -12,4 +12,6 @@ import com.terabulk.seller.models.Store;
 @Repository
 public interface StoreRepository extends MongoRepository<Store, String> {
 	Store findByStoreUrl(String url);
+
+	Store findBySellerId(String sellerid);
 }

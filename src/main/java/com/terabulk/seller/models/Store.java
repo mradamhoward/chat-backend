@@ -23,7 +23,20 @@ public class Store {
 	private HashSet<String> featuredImgs = new HashSet<>();
 	
 	private HashSet<Review> reviews = new HashSet<>();
-	
+
+	private String sellerId;
+
+
+
+
+	public String getSellerId() {
+		return sellerId;
+	}
+
+	public void setSellerId(String sellerId) {
+		this.sellerId = sellerId;
+	}
+
 	public void addCategory(String name, String route) {
 		this.categories.add(new Category(name, route));
 	}

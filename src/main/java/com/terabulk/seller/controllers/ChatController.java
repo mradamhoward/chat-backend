@@ -2,10 +2,7 @@ package com.terabulk.seller.controllers;
 
 import com.terabulk.seller.models.*;
 import com.terabulk.seller.rabbitmq.RabbitMQSender;
-import com.terabulk.seller.repository.ConversationRepo;
-import com.terabulk.seller.repository.ProfileRepo;
-import com.terabulk.seller.repository.SellerConversationRepo;
-import com.terabulk.seller.repository.WebSocketChatMessageRepository;
+import com.terabulk.seller.repository.*;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -139,7 +136,13 @@ public class ChatController {
 		ArrayList<Profile> profiles = new ArrayList<Profile>();
 		for(String contact: contacts){
 			try{
-				profiles.add(profileRepo.findByEmail(contact));
+
+				Profile profile = profileRepo.findByEmail(contact);
+				System.out.println("profile: "+profile.getEmail());
+				String store = storeRepository.findBySellerId(contact).getName();
+				System.out.println("Store: "+store);
+				profile.setCompany(store);
+				profiles.add(profile);
 			} catch (Exception e){
 
 			}
@@ -148,6 +151,8 @@ public class ChatController {
 
 		return profiles;
 	}
+
+	@Autowired private StoreRepository storeRepository;
 	@GetMapping("/conversation/profiles/seller/email")
 	public List<Profile> getAllConversationProfilesSeller(@RequestParam String email){
 		List<String> contacts = sellerConversationRepo.findBySellerEmail(email).getRecipients();

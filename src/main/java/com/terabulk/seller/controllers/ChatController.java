@@ -81,16 +81,41 @@ public class ChatController {
 			conversation = new Conversation();
 			conversation.setEmail(email);
 		}
-		conversation.getContacts().add(contact);
+
+
+		boolean isContactThere = false;
+
+		for(String c: conversation.getContacts()){
+			if(c.equalsIgnoreCase(contact)){
+				isContactThere = true;
+			}
+		}
+
+		if(!isContactThere){
+			conversation.getContacts().add(contact);
+		}
+
+		conversationRepo.save(conversation);
 		SellerConversation sellerConversation = sellerConversationRepo.findBySellerEmail(contact);
 		if(sellerConversation == null){
 			sellerConversation = new SellerConversation();
 			sellerConversation.setSellerEmail(contact);
 		}
 
-		sellerConversation.getRecipients().add(email);
+		boolean isSellerRecipientThere = false;
+
+		for(String r: sellerConversation.getRecipients()){
+			if(r.equalsIgnoreCase(email)){
+				isSellerRecipientThere = true;
+			}
+		}
+
+		if(!isSellerRecipientThere){
+			sellerConversation.getRecipients().add(email);
+		}
+
 		sellerConversationRepo.save(sellerConversation);
-		conversationRepo.save(conversation);
+
 		return "Success";
 	}
 

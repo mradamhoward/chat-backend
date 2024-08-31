@@ -18,12 +18,12 @@ public class SetupCategorySelects {
 
     @Bean
     public void setupCategorySelect(){
-        insertCategorySelect("Electronics", 0, Arrays.asList("Mobile Phones", "Computers", "Audio", "TVs", "Printers", "PC Accessories"));
-        insertCategorySelect("Health & Beauty", 0, Arrays.asList("Face Cream", "Razors", "Aftershave", "Toothpaste", "Toothbrush", "Body wash"));
-        insertCategorySelect("Computers", 1, Arrays.asList("Laptops", "Desktops", "Servers"));
-        insertCategorySelect("Laptops", 2, Arrays.asList("Windows", "Apple", "Gaming"));
-        insertCategorySelect("Windows", 3, Arrays.asList("Everyday", "Home", "Office"));
-        insertCategorySelect("Everyday", 4, Arrays.asList("Basic", "With graphics cars", "Premium"));
+//        insertCategorySelect("Electronics", 0, Arrays.asList("Mobile Phones", "Computers", "Audio", "TVs", "Printers", "PC Accessories"));
+//        insertCategorySelect("Health & Beauty", 0, Arrays.asList("Face Cream", "Razors", "Aftershave", "Toothpaste", "Toothbrush", "Body wash"));
+//        insertCategorySelect("Computers", 1, Arrays.asList("Laptops", "Desktops", "Servers"));
+//        insertCategorySelect("Laptops", 2, Arrays.asList("Windows", "Apple", "Gaming"));
+//        insertCategorySelect("Windows", 3, Arrays.asList("Everyday", "Home", "Office"));
+//        insertCategorySelect("Everyday", 4, Arrays.asList("Basic", "With graphics cars", "Premium"));
     }
 
     public void insertCategorySelect(String category, int index, List<String> cats){
